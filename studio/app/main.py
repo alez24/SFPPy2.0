@@ -147,8 +147,7 @@ app.include_router(fitting.router, prefix="/api/fitting", tags=["Fitting"])
 async def index(request: Request):
     """Main application page."""
     version_info = get_version_info()
-    return templates.TemplateResponse("index.html", {
-        "request": request,
+    return templates.TemplateResponse(request, "index.html", {
         "version": version_info,
         "current_year": datetime.now().year,
     })

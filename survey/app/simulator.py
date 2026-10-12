@@ -406,9 +406,9 @@ def run_batch_job(job_id: str, spreadsheet_path: Path, n_workers: int, n_samples
 async def home(request: Request):
     """Serve the main simulator page."""
     return templates.TemplateResponse(
+        request,
         "simulator.html",
         {
-            "request": request,
             "cpu_count": get_cpu_count(),
             "default_workers": get_default_workers(),
             "spreadsheet_support": check_dependencies(),
